@@ -4,7 +4,7 @@ export default async function handler(req, res) {
         return res.status(405).json({ error: "Method not allowed" });
     }
 
-    const API_KEY = process.env.GROQ_API_KEY;
+    const API_KEY = process.env.API_KEY;
 
     if (!API_KEY) {
         return res.status(500).json({ error: "API key not configured on server." });
