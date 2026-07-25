@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>AI Code Review Dashboard</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+  <nav>
+
+    <h2>
+      <i class="fa-solid fa-code"></i>
+      AI Code Review Dashboard
+    </h2>
+
+    <button id="themeBtn">
+      <i class="fa-solid fa-moon"></i>
+    </button>
+
+  </nav>
+
+  <section class="search">
+
+    <input type="text" id="owner" placeholder="GitHub Username">
+
+    <input type="text" id="repo" placeholder="Repository Name">
+
+    <button id="analyzeBtn">
+      Analyze Repository
+    </button>
+
+  </section>
+
+  <div id="loading" class="hidden">
+
+    <div class="loader"></div>
+
+    <p>Analyzing Repository...</p>
+
+  </div>
+
+  <section id="dashboard" class="hidden">
+
+    <div class="card">
+
+      <h3>Repository Details</h3>
+
+      <p><strong>Name:</strong> <span id="repoName"></span></p>
+
+      <p><strong>Description:</strong> <span id="repoDesc"></span></p>
+
+      <p><strong>Language:</strong> <span id="repoLang"></span></p>
+
+      <p><strong>Stars:</strong> ⭐ <span id="repoStars"></span></p>
+
+      <p><strong>Forks:</strong> 🍴 <span id="repoForks"></span></p>
+
+      <p><strong>Issues:</strong> <span id="repoIssues"></span></p>
+
+    </div>
+    <div class="card">
+
+      <h3>AI Code Review</h3>
+
+      <div id="reviewResult">
+
+        Waiting for analysis...
+
+      </div>
+
+    </div>
+    <div class="card">
+
+      <h3>Quality Score</h3>
+
+      <h1 id="score">0/100</h1>
+
+      <div id="stars">
+
+        ☆☆☆☆☆
+
+      </div>
+
+    </div>
+    <div class="card">
+
+      <h3>Language Usage</h3>
+
+      <canvas id="languageChart"></canvas>
+
+    </div>
+
+    <div class="card">
+
+      <h3>Suggestions</h3>
+
+      <ul id="suggestions">
+
+      </ul>
+
+    </div>
+
+  </section>
+
+  <footer>
+
+    AI Code Review Dashboard © 2026
+
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
