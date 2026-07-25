@@ -11,7 +11,7 @@ body {
   color: #fff;
 }
 
-/* Navbar */
+
 
 nav {
   display: flex;
@@ -162,14 +162,12 @@ nav button:hover {
   color: gold;
 }
 
-/* AI Review */
-
 #reviewResult {
   line-height: 1.8;
   white-space: pre-wrap;
 }
 
-/* Suggestions */
+
 
 #suggestions {
   padding-left: 20px;
@@ -187,7 +185,7 @@ canvas {
   max-height: 320px;
 }
 
-/* Footer */
+
 
 footer {
   margin-top: 40px;
@@ -258,8 +256,6 @@ footer {
   }
 
 }
-
-/* Dark Theme */
 
 body.dark {
   background: #111827;
