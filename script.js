@@ -365,14 +365,16 @@ window.addEventListener("load", () => {
     const reviewCard = reviewResult.parentElement;
 
     const buttonBox = document.createElement("div");
-    buttonBox.style.cssText = "margin-top:20px; display:flex; gap:10px;";
+    buttonBox.className = "review-btn-box";
 
     const copyBtn = document.createElement("button");
-    copyBtn.innerHTML = "📋 Copy";
+    copyBtn.innerHTML = "📋 Copy Review";
+    copyBtn.className = "review-action-btn copy-btn";
     copyBtn.onclick = copyReview;
 
     const downloadBtn = document.createElement("button");
-    downloadBtn.innerHTML = "⬇ Download";
+    downloadBtn.innerHTML = "⬇ Download Report";
+    downloadBtn.className = "review-action-btn download-btn";
     downloadBtn.onclick = downloadReview;
 
     buttonBox.appendChild(copyBtn);
