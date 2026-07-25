@@ -177,11 +177,15 @@ async function generateAIReview(owner, repo) {
 
         });
 
+        const data = await response.json();
+
         if (!response.ok) {
-            throw new Error("AI Review failed.");
+            const errMsg = data.error || "AI Review failed.";
+            reviewResult.innerHTML = `<span style="color:red;">❌ Error: ${errMsg}</span>`;
+            console.error("Server error:", errMsg);
+            return;
         }
 
-        const data = await response.json();
         const review = data.review;
 
         reviewResult.innerHTML = review.replace(/\n/g, "<br>");
@@ -190,12 +194,13 @@ async function generateAIReview(owner, repo) {
 
     } catch (error) {
 
-        reviewResult.innerHTML = "Unable to generate AI review.";
+        reviewResult.innerHTML = `<span style="color:red;">❌ Network error: ${error.message}</span>`;
         console.error(error);
 
     }
 
 }
+
 
 function calculateScore(review) {
 
