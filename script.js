@@ -165,53 +165,15 @@ async function generateAIReview(owner, repo) {
 
         reviewResult.innerHTML = "Generating AI Review...";
 
-        const prompt = `
-You are a senior software engineer.
-
-Review the GitHub repository:
-
-Owner: ${owner}
-Repository: ${repo}
-
-Provide the following:
-
-Overall Score (0-100)
-
-Star Rating (1-5)
-
-Strengths
-
-Weaknesses
-
-Possible Bugs
-
-Security Issues
-
-Performance Improvements
-
-Code Quality
-
-Best Practices
-
-Optimization Suggestions
-
-Return the answer in clear markdown.
-`;
-
-        const response = await fetch(AI_API, {
+        const response = await fetch("/api/review", {
 
             method: "POST",
 
             headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${API_KEY}`
+                "Content-Type": "application/json"
             },
 
-            body: JSON.stringify({
-                model: "llama-3.3-70b-versatile",
-                messages: [{ role: "user", content: prompt }],
-                temperature: 0.4
-            })
+            body: JSON.stringify({ owner, repo })
 
         });
 
@@ -220,7 +182,7 @@ Return the answer in clear markdown.
         }
 
         const data = await response.json();
-        const review = data.choices[0].message.content;
+        const review = data.review;
 
         reviewResult.innerHTML = review.replace(/\n/g, "<br>");
 
